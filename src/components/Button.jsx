@@ -1,15 +1,15 @@
 import { User } from "./Icons/User";
 
-export function Button() {
+export function Button({ children }) {
     return (
         <>
-            <button className="rounded-full bg-black text-white shadow-2xl ">
+            <button className="w-[80px] h-[30px] rounded-full bg-black text-white">
                 <div className="flex justify-center items-center">
                     <div>
                         <User></User>
                     </div>
                     <div>
-                        <h4>button</h4>
+                        {children}
                     </div>
                 </div>
             </button>

@@ -2,9 +2,12 @@ import './App.css'
 import { Button } from './components/Button.jsx'
 import { Card } from './components/Card.jsx'
 import { AlertBell } from './components/Icons/AlertBell.jsx'
-import { Dashboard } from './components/Icons/Dashboard.jsx'
+import { DashboardBell } from './components/Icons/DashboardBell.jsx'
+import { LinkedIn } from './components/Icons/LinkedIn.jsx'
 import { Notes } from './components/Icons/Notes.jsx'
+import { NotesCard } from './components/NotesCard.jsx'
 import { Profile } from './components/Profile.jsx'
+import { ProfileCard } from './components/ProfileCard.jsx'
 import { Tags } from './components/Tags.jsx'
 function App() {
   return (
@@ -12,62 +15,58 @@ function App() {
       <Card>
         <div id="topic" className='flex justify-between items-center'>
           <div className='flex justify-start items-center'>
-            <div>
+            <div className='top-[5685px] left-[8965px] items-center'>
               <AlertBell></AlertBell>
             </div>
             <div>
-              <h1 className='text-5xl'>Social Stalker</h1>
+              <p className='w-[125px]  left-[8995px] text-black font-semibold text-lg items-center'>Social Stalker</p>
             </div>
           </div>
-          <div >
-            <Dashboard></Dashboard>
+          <div>
+            <DashboardBell className='pb-[5px]'></DashboardBell>
           </div>
         </div>
-        <Card id="about">
-          <div id="info">
-            <div className="flex justify-between items-center">
-              <div className='flex justify-start'>
-                <div>
-                  <Profile></Profile>
-                </div>
-                <div>
-                  <h1>VCUAVC</h1>
-                  <span>UABSCUABCUSBCUABACASCASC</span>
-                </div>
-              </div>
-              <div >
-                <Dashboard></Dashboard>
-              </div>
+        <ProfileCard id="about">
+          <div id="info" className="flex justify-start ">
+            <div>
+              <Profile></Profile>
+            </div>
+            <div className='w-[244px] h-[55px] pl-[4px]'>
+              <h1 className='h-[29px] text-black font-bold text-2xl '>Social Stalker</h1>
+              <p className='two-lines-truncate h-[30px] text-black font-semibold text-gray-700 text-xs'>Social Stalker this is the description section respectively</p>
+            </div>
+            <div>
+              <LinkedIn></LinkedIn>
             </div>
           </div>
-          <div id="tags" className="flex justify-between" >
-            <Tags></Tags>
-            <Tags></Tags>
-            <Tags></Tags>
+          <div id="tags" className="p-[5px] pt-[8px] flex justify-between" >
+            <Tags>Customers</Tags>
+            <Tags>Enterprise</Tags>
+            <Tags>+ Add Me</Tags>
           </div>
-          <Card id="notes">
+          <NotesCard id="notes">
             <div className='flex justify-start items-center'>
-              <div>
+              <div className='pt-[4px]'>
                 <Notes></Notes>
               </div>
               <div>
-                <h1>Notes</h1>
+                <p className='pl-[4px] text-black font-medium text-base items-center'>Social Stalker</p>
               </div>
             </div>
             <div>
               <textarea
-                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Type your message..."
+                className=" notes-textarea w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Type Your Notes Here.."
               ></textarea>
             </div>
-            <div className='flex justify-center'>
+            <div className='flex justify-center items-center'>
               <div>
-                <Button></Button>
+                <Button>Save</Button>
               </div>
             </div>
-          </Card>
-        </Card>
-      </Card>
+          </NotesCard>
+        </ProfileCard >
+      </Card >
     </>
   )
 }

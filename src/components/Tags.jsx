@@ -1,24 +1,22 @@
-export function Tags() {
-    const color = [
-        {
-            primary: "green-500",
-            secondary: "green-200"
-        },
-        {
-            primary: "red-500",
-            secondary: "red-200"
-        },
-        {
-            primary: "blue-500",
-            secondary: "blue-200"
-        }
-    ]
-    const rand = Math.floor(Math.random() * 3);
-    let className = "rounded-full m-1.5 p-1 bg-" + color[rand].primary + " text-" + color[rand].secondary;
-    return (
-        <>
-            <button className={`rounded-full m-1.5 p-1 bg-${color[rand].primary} text-${color[rand].secondary}`} >BUASYVCASUCV</button >
-        </>
-    )
-}
+export function Tags({ children }) {
+    const colorOptions = [
+        { primary: 'bg-green-500', secondary: 'text-green-200' },
+        { primary: 'bg-red-500', secondary: 'text-red-200' },
+        { primary: 'bg-blue-500', secondary: 'text-blue-200' },
+        { primary: 'bg-blue-500', secondary: 'text-blue-200' },
+        { primary: 'bg-amber-500', secondary: 'text-amber-200' },
+        { primary: 'bg-violet-500', secondary: 'text-violet-200' },
+        { primary: 'bg-pink-500', secondary: 'text-pink-200' },
+    ];
 
+    const randomIndex = Math.floor(Math.random() * colorOptions.length);
+    const { primary, secondary } = colorOptions[randomIndex];
+
+    return (
+        <button
+            className={`rounded-full w-[101px] h-[29px] border border-solid m-1.5 p-1 font-semibold text-sm ${primary} ${secondary}`}
+        >
+            {children}
+        </button>
+    );
+}
