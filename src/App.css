@@ -23,6 +23,8 @@
     line-height: 0.7;
     outline: none;
     margin-bottom: 4px;
+    resize: none;
+    overflow: auto;
 }
 
 .notes-textarea:focus {

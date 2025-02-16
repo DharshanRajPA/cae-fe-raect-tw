@@ -32,8 +32,8 @@ function App() {
               <Profile></Profile>
             </div>
             <div className='w-[244px] h-[55px] pl-[4px]'>
-              <h1 className='h-[29px] text-black font-bold text-2xl '>Social Stalker</h1>
-              <p className='two-lines-truncate h-[30px] text-black font-semibold text-gray-700 text-xs'>Social Stalker this is the description section respectively</p>
+              <h1 className='h-[29px] text-black font-bold text-2xl '>Person Name</h1>
+              <p className='two-lines-truncate h-[30px] text-black font-semibold text-gray-700 text-xs'>This is the Description Section About The Person Details And Description ...</p>
             </div>
             <div>
               <LinkedIn></LinkedIn>
@@ -50,12 +50,12 @@ function App() {
                 <Notes></Notes>
               </div>
               <div>
-                <p className='pl-[4px] text-black font-medium text-base items-center'>Social Stalker</p>
+                <p className='pl-[4px] text-black font-medium text-base items-center'>Notes</p>
               </div>
             </div>
             <div>
               <textarea
-                className=" notes-textarea w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className=" notes-textarea w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
                 placeholder="Type Your Notes Here.."
               ></textarea>
             </div>

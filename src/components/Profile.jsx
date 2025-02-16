@@ -9,7 +9,7 @@ export function Profile() {
 
     return (
         <>
-            <img class="w-[59px] h-[59px] top-[5739px] left-[8966px] rounded-full" alt="" src={profile_img} />
+            <img class="w-[59px] h-[59px] top-[5739px] left-[8966px] rounded-full border-[1.5px] border-solid border-violet-800" alt="" src={profile_img} />
         </>
     )
 }
