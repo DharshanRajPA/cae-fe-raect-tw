@@ -1,15 +1,38 @@
-import './App.css'
-import { Button } from './components/Button.jsx'
-import { Card } from './components/Card.jsx'
-import { AlertBell } from './components/Icons/AlertBell.jsx'
-import { DashboardBell } from './components/Icons/DashboardBell.jsx'
-import { LinkedIn } from './components/Icons/LinkedIn.jsx'
-import { Notes } from './components/Icons/Notes.jsx'
-import { NotesCard } from './components/NotesCard.jsx'
-import { Profile } from './components/Profile.jsx'
-import { ProfileCard } from './components/ProfileCard.jsx'
-import { Tags } from './components/Tags.jsx'
+import { useEffect } from 'react';
+import './App.css';
+import { Button } from './components/Button.jsx';
+import { Card } from './components/Card.jsx';
+import { AlertBell } from './components/Icons/AlertBell.jsx';
+import { DashboardBell } from './components/Icons/DashboardBell.jsx';
+import { LinkedIn } from './components/Icons/LinkedIn.jsx';
+import { Notes } from './components/Icons/Notes.jsx';
+import { NotesCard } from './components/NotesCard.jsx';
+import { ProfileCard } from './components/ProfileCard.jsx';
+import { Tags } from './components/Tags.jsx';
 function App() {
+
+
+  useEffect(() => {
+    function handleMessage(event) {
+      if (event.data.type === 'PROFILE_DATA') {
+        console.log("Received profile data:", event.data.payload);
+        const ProfileName = document.getElementById('profile-name');
+        const ProfilePicture = document.getElementById('profile-picture');
+        const ProfileDescription = document.getElementById('profile-description');
+        if (ProfileName) ProfileName.innerHTML = event.data.payload.Name;
+        if (ProfilePicture) ProfilePicture.src = event.data.payload.ProfilePicture;
+        if (ProfileDescription) ProfileDescription.innerHTML = event.data.payload.Description;
+      }
+    }
+
+    window.addEventListener('message', handleMessage);
+
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, []);
+
+
   return (
     <>
       <Card>
@@ -19,7 +42,7 @@ function App() {
               <AlertBell></AlertBell>
             </div>
             <div>
-              <p className='w-[125px]  left-[8995px] text-black font-semibold text-lg items-center'>Social Stalker</p>
+              <p className='w-[125px]  left-[8995px] text-black font-medium text-base items-center'>Social Stalker</p>
             </div>
           </div>
           <div>
@@ -29,11 +52,11 @@ function App() {
         <ProfileCard id="about">
           <div id="info" className="flex justify-start ">
             <div>
-              <Profile></Profile>
+              <img id="profile-picture" class="w-[50px] h-[50px] top-[5739px] left-[8966px] rounded-full border-[1.5px] border-solid border-violet-800" alt="" src="https://picsum.photos/200/300" />
             </div>
-            <div className='w-[244px] h-[55px] pl-[4px]'>
-              <h1 className='h-[29px] text-black font-bold text-2xl '>Person Name</h1>
-              <p className='two-lines-truncate h-[30px] text-black font-semibold text-gray-700 text-xs'>This is the Description Section About The Person Details And Description ...</p>
+            <div className='w-[185px] h-[55px] pl-[4px]'>
+              <h1 id="profile-name" className='h-[20px] mb-[3px] text-black font-semibold text-lg'>Person Name</h1>
+              <p id="profile-description" className='two-lines-truncate h-[28x] text-black font-semibold text-gray-700 text-[10px]'>This is the Description Section About The Person Details And Description ...</p>
             </div>
             <div>
               <LinkedIn></LinkedIn>
@@ -50,7 +73,7 @@ function App() {
                 <Notes></Notes>
               </div>
               <div>
-                <p className='pl-[4px] text-black font-medium text-base items-center'>Notes</p>
+                <p className='pl-[4px] text-black font-medium text-sm items-center'>Notes</p>
               </div>
             </div>
             <div>

@@ -14,7 +14,7 @@ export function Tags({ children }) {
 
     return (
         <button
-            className={`rounded-full w-[101px] h-[29px] border border-solid m-1.5 p-1 font-semibold text-sm ${primary} ${secondary}`}
+            className={`rounded-full w-[101px] h-[29px] border border-solid m-1.5 p-1 font-medium text-xs ${primary} ${secondary}`}
         >
             {children}
         </button>
